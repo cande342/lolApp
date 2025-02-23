@@ -20,7 +20,6 @@
         Support
       </button>
     </div>
-
     <!-- Campo de búsqueda -->
     <div class="search-input-container">
       <input
@@ -29,25 +28,33 @@
         [placeholder]="'Search for ' + (role === 'adc' ? 'ADC' : 'Support') + ' champion...'"
         class="search-input"
       />
+      <!-- 🔹 Imagen del campeón -->
+      <div *ngIf="championImage" class="champion-image-container">
+        <img [src]="championImage" alt="Champion Image" class="champion-image">
+      </div>
       <button type="submit" class="search-btn" [disabled]="searchForm.invalid">Search</button>
     </div>
-
-    <!-- Mensaje de error -->
-    <p *ngIf="searchForm.controls['searchQuery'].invalid && searchForm.controls['searchQuery'].touched" class="error-message">
-      El campo de búsqueda es obligatorio y debe tener al menos 2 caracteres.
-    </p>
   </form>
 
-  <!-- Contenedor de resultados -->
+
   <div class="results-container">
     <div *ngIf="results.length > 0; else noResults">
-      <h3>Results:</h3>
+      <h3>Play with:</h3>
       <ul class="results-list">
         <li *ngFor="let result of results" class="result-item">
-          <span class="champion-name">{{ result.name }}</span>
-          <span class="stats">
-            Winrate: {{ result.winrate }}% | Games: {{ result.games }}
-          </span>
+          <!-- Imagen del campeón -->
+          <img 
+            [src]="getChampionImage(result.name)" 
+            alt="{{ result.name }} Image" 
+            class="result-champion-image"
+          />
+          <!-- Nombre y estadísticas -->
+          <div class="result-info">
+            <span class="champion-name">{{ result.name }}</span>
+            <span class="stats">
+              Winrate: {{ result.winrate }}% | Games: {{ result.games }}
+            </span>
+          </div>
         </li>
       </ul>
     </div>

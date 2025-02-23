@@ -1,0 +1,47 @@
+/* Estilo general de la página */
+body {
+    margin: 0;
+    font-family: 'Beaufort for LOL', Arial, sans-serif;
+  }
+  
+  .page-container {
+    display: flex; /* Usar flexbox para alinear aside y main */
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
+    background-color: #010a13; /* Fondo oscuro */
+  }
+  
+  
+  /* Estilo del contenido principal */
+  main {
+    flex-grow: 1; /* El contenido principal ocupa el resto del espacio */
+    background-color: #010a13; /* Fondo oscuro */
+    color: #f0e6d2; /* Texto claro */
+    overflow-y: auto; /* Permite desplazamiento si el contenido es largo */
+    display: flex;
+    flex-direction: column; /* Alinear contenido de manera vertical */
+    align-items: center; /* Centrar el contenido */
+    justify-content: flex-start; /* Alinear hacia arriba */
+  }
+  
+  /* Título de la página */
+  .page-title {
+    font-size: 1.3rem; /* Tamaño del título */
+    font-weight: bold;
+    color: #c8aa6e; /* Color dorado */
+    text-align: center; /* Centrado */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    letter-spacing: 2px; /* Espaciado entre letras */
+  }
+  
+  /* Estilo para app-bottom-form dentro del main */
+  app-bottom-form {
+    margin-bottom: 1rem;
+    width: 100%; /* Asegura que el formulario ocupe todo el espacio disponible */
+  }
+  
+  /* Estilo del formulario dentro del aside */
+  app-aside-bottom-form {
+    width: 100%; /* Asegura que el formulario ocupe todo el espacio disponible */
+    margin-top: 1rem;
+  }
+  

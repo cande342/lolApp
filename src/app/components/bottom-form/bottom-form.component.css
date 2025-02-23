@@ -1,12 +1,13 @@
-.search-container {
+  .search-container {
     max-width: 600px;
     margin: 2rem auto;
     padding: 1.5rem;
     background-color: #0a1428;
     border-radius: 8px;
     box-shadow: 0 4px 12px rgba(0, 128, 255, 0.15);
+    border: 3px solid #4d6c91; /* Borde sólido de color gris azulado */
   }
-  
+
   .search-form {
     display: flex;
     flex-direction: column;
@@ -32,6 +33,10 @@
     text-transform: uppercase;
   }
   
+  h3{
+    font-family: "Beaufort for LOL", Arial, sans-serif;
+  }
+  
   .role-btn.active {
     background-color: #c8aa6e;
     color: #0a1428;
@@ -44,9 +49,23 @@
   
   .search-input-container {
     display: flex;
+    align-items: center;
     gap: 0.5rem;
   }
   
+  .champion-image-container {
+    position: relative;
+    height: 40px; /* Altura deseada para la imagen */
+    width: 40px; /* Ancho deseado para la imagen */
+  }
+  
+  .champion-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Asegura que la imagen se ajuste correctamente */
+    border-radius: 4px; /* Bordes redondeados para una apariencia más suave */
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2); /* Sutil sombra para destacar la imagen */
+  }
   .search-input {
     flex-grow: 1;
     padding: 0.75rem;
@@ -85,6 +104,37 @@
     border-radius: 4px;
     color: #f0e6d2;
     min-height: 100px;
+  }
+
+  .result-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.5rem 0;
+  }
+  
+  .result-champion-image {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 4px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+  
+  .result-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+  }
+  
+  .champion-name {
+    font-weight: bold;
+    color: #c8aa6e;
+  }
+  
+  .stats {
+    font-size: 0.9rem;
+    color: #a09b8c;
   }
   
   
