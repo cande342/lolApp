@@ -1,0 +1,58 @@
+<div class="search-container">
+  <!-- Formulario de búsqueda -->
+  <form class="search-form" [formGroup]="searchForm" (submit)="search($event)">
+    <!-- Selector de rol -->
+    <div class="role-toggle">
+      <button 
+        type="button" 
+        class="role-btn" 
+        [ngClass]="{ 'active': role === 'adc' }" 
+        (click)="setRole('adc')"
+      >
+        ADC
+      </button>
+      <button 
+        type="button" 
+        class="role-btn" 
+        [ngClass]="{ 'active': role === 'supp' }" 
+        (click)="setRole('supp')"
+      >
+        Support
+      </button>
+    </div>
+
+    <!-- Campo de búsqueda -->
+    <div class="search-input-container">
+      <input
+        type="text"
+        formControlName="searchQuery"
+        [placeholder]="'Search for ' + (role === 'adc' ? 'ADC' : 'Support') + ' champion...'"
+        class="search-input"
+      />
+      <button type="submit" class="search-btn" [disabled]="searchForm.invalid">Search</button>
+    </div>
+
+    <!-- Mensaje de error -->
+    <p *ngIf="searchForm.controls['searchQuery'].invalid && searchForm.controls['searchQuery'].touched" class="error-message">
+      El campo de búsqueda es obligatorio y debe tener al menos 2 caracteres.
+    </p>
+  </form>
+
+  <!-- Contenedor de resultados -->
+  <div class="results-container">
+    <div *ngIf="results.length > 0; else noResults">
+      <h3>Results:</h3>
+      <ul class="results-list">
+        <li *ngFor="let result of results" class="result-item">
+          <span class="champion-name">{{ result.name }}</span>
+          <span class="stats">
+            Winrate: {{ result.winrate }}% | Games: {{ result.games }}
+          </span>
+        </li>
+      </ul>
+    </div>
+    <ng-template #noResults>
+      <p>No results found. Try searching for another champion.</p>
+    </ng-template>
+  </div>
+</div>
