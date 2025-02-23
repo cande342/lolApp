@@ -1,0 +1,28 @@
+<div class="results-container">
+  <div *ngIf="results.length > 0; else noResults">
+    <h3>Play with:</h3>
+    <ul class="results-list">
+      <li *ngFor="let result of results" class="result-item">
+        <!-- Imagen del campeón -->
+        <img 
+          [src]="getChampionImage(result.name)" 
+          alt="{{ result.name }} Image" 
+          class="result-champion-image"
+        />
+        
+        <!-- Nombre y estadísticas -->
+        <div class="result-info">
+          <span class="champion-name">{{ result.name }}</span>
+          <span class="stats">
+            Winrate: {{ result.winrate }}% | Games: {{ result.games }}
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- Mensaje cuando no hay resultados -->
+  <ng-template #noResults>
+    <p class="no-results-message">No results found. Try a different champion.</p>
+  </ng-template>
+</div>

@@ -1,65 +1,31 @@
-<div class="search-container">
-  <!-- Formulario de búsqueda -->
-  <form class="search-form" [formGroup]="searchForm" (submit)="search($event)">
-    <!-- Selector de rol -->
-    <div class="role-toggle">
-      <button 
-        type="button" 
-        class="role-btn" 
-        [ngClass]="{ 'active': role === 'adc' }" 
-        (click)="setRole('adc')"
-      >
-        ADC
-      </button>
-      <button 
-        type="button" 
-        class="role-btn" 
-        [ngClass]="{ 'active': role === 'supp' }" 
-        (click)="setRole('supp')"
-      >
-        Support
-      </button>
-    </div>
-    <!-- Campo de búsqueda -->
-    <div class="search-input-container">
-      <input
-        type="text"
-        formControlName="searchQuery"
-        [placeholder]="'Search for ' + (role === 'adc' ? 'ADC' : 'Support') + ' champion...'"
-        class="search-input"
-      />
-      <!-- 🔹 Imagen del campeón -->
-      <div *ngIf="championImage" class="champion-image-container">
-        <img [src]="championImage" alt="Champion Image" class="champion-image">
-      </div>
-      <button type="submit" class="search-btn" [disabled]="searchForm.invalid">Search</button>
-    </div>
-  </form>
-
-
-  <div class="results-container">
-    <div *ngIf="results.length > 0; else noResults">
-      <h3>Play with:</h3>
-      <ul class="results-list">
-        <li *ngFor="let result of results" class="result-item">
-          <!-- Imagen del campeón -->
-          <img 
-            [src]="getChampionImage(result.name)" 
-            alt="{{ result.name }} Image" 
-            class="result-champion-image"
-          />
-          <!-- Nombre y estadísticas -->
-          <div class="result-info">
-            <span class="champion-name">{{ result.name }}</span>
-            <span class="stats">
-              Winrate: {{ result.winrate }}% | Games: {{ result.games }}
-            </span>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <ng-template #noResults>
-      <p>No results found. Try searching for another champion.</p>
-    </ng-template>
+<div class="bottom-form">
+  <!-- Selector de Rol -->
+  <div class="role-selector">
+    <button 
+      (click)="setRole('adc')" 
+      [class.active]="role === 'adc'" 
+      class="role-btn">
+      ADC
+    </button>
+    <button 
+      (click)="setRole('supp')" 
+      [class.active]="role === 'supp'" 
+      class="role-btn">
+      Support
+    </button>
   </div>
+
+  <!-- Botón Limpiar (Separado del formulario) -->
+  <button type="button" class="clear-btn" (click)="clearSearchAndResults()">Limpiar</button>
+
+  <!-- Componente Hijo: Search -->
+  <app-search 
+    [role]="role" 
+    (searchResults)="onSearchResults($event.results, $event.championImage)">
+  </app-search>
+
+  <!-- Componente Hijo: Results -->
+  <app-results 
+    [results]="results">
+  </app-results>
 </div>
