@@ -1,1 +1,27 @@
-<p>home works!</p>
+<div class="home-container">
+    <div class="hero-section">
+      <div class="hero-content">
+        <h1 class="title">MATCHMAKING FIX</h1>
+        <p class="subtitle">Because your teammates won’t help you</p>
+      </div>
+    </div>
+    
+    <div class="cards-container">
+      <div class="card-grid">
+        @for (card of cards; track card.id) {
+          <div class="card" [ngClass]="'card-' + card.color">
+            <div class="card-image-container">
+              <img [src]="card.image" [alt]="card.title" class="card-image">
+              <div class="card-overlay"></div>
+            </div>
+            <div class="card-content">
+              <h2 class="card-title">{{ card.title }}</h2>
+              <h3 class="card-subtitle">{{ card.subtitle }}</h3>
+              <p class="card-description">{{ card.description }}</p>
+              <a [routerLink]="[card.link]" class="card-button">Explore</a>
+            </div>
+          </div>
+        }
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,81 @@
+.page-container {
+    display: flex;
+    min-height: 100vh;
+    background-color: var(--lol-dark);
+    color: var(--lol-light);
+    font-family: 'Beaufort for LOL', Arial, sans-serif;
+  }
+  
+  main {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 2rem;
+    overflow-y: auto;
+  }
+  
+  .champions-title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: var(--lol-gold);
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 2rem;
+    text-shadow: 0 0 10px rgba(200, 170, 110, 0.5);
+  }
+  
+  .champions-container {
+    width: 100%;
+    padding: 2rem;
+    background-color: var(--lol-dark);
+    min-height: 100vh;
+  }
+  
+  .bottom-form {
+    background-color: var(--lol-dark-blue);
+    border-radius: 8px;
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .role-selector {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  
+  .role-btn {
+    background-color: var(--lol-dark);
+    color: var(--lol-light);
+    border: 2px solid var(--lol-gold);
+    padding: 0.5rem 1rem;
+    margin: 0 0.5rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .role-btn.active {
+    background-color: var(--lol-gold);
+    color: var(--lol-dark);
+  }
+  
+  .clear-btn {
+    display: block;
+    margin: 1rem auto;
+    background-color: var(--lol-red);
+    color: var(--lol-light);
+    border: none;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .clear-btn:hover {
+    background-color: var(--lol-red-hover);
+  }

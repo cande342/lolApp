@@ -1,0 +1,248 @@
+
+  
+  .home-container {
+    background-color: #010a13;
+    min-height: 100vh;
+    color: white;
+    font-family: "Beaufort for LOL", Arial, sans-serif;
+  }
+  
+  .hero-section {
+    background-image: linear-gradient(rgba(1, 10, 19, 0.7), rgba(1, 10, 19, 0.9)), url("/assets/hero-bg.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: relative;
+  }
+  
+  .hero-content {
+    z-index: 2;
+  }
+  
+  .title {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--lol-gold);
+    text-shadow: 0 0 10px rgba(200, 170, 110, 0.5);
+  }
+  
+  .subtitle {
+    font-size: 1.5rem;
+    color: #ffffff;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .cards-container {
+    padding: 4rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+  
+  .card {
+    background-color: #0a1428;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+  
+  .card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  }
+  
+  .card-image-container {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+  }
+  
+  .card-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .card:hover .card-image {
+    transform: scale(1.1);
+  }
+  
+  .card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 50%;
+    background: linear-gradient(to top, #0a1428, transparent);
+  }
+  
+  .card-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+  
+  .card-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: 1px;
+  }
+  
+  .card-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+  
+  .card-description {
+    color: #a7a7a7;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
+    flex-grow: 1;
+  }
+  
+  .card-button {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    background-color: transparent;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 1px;
+    border: 2px solid;
+    border-radius: 4px;
+    align-self: flex-start;
+    transition: all 0.3s ease;
+  }
+  
+  .card-blue .card-button {
+    border-color: #0ac8b9;
+    color: #0ac8b9;
+  }
+  
+  .card-gold .card-button {
+    border-color: #c8aa6e;
+    color: #c8aa6e;
+  }
+  
+  .card-red .card-button {
+    border-color: #be1e37;
+    color: #be1e37;
+  }
+  
+  .card-green .card-button {
+    border-color: #0acf83;
+    color: #0acf83;
+  }
+  
+  .card-blue .card-button:hover {
+    background-color: #0ac8b9;
+    color: #0ac8b9;
+  }
+  
+  .card-gold .card-button:hover {
+    background-color: #c8aa6e;
+    color: #010a13;
+  }
+  
+  .card-red .card-button:hover {
+    background-color: #be1e37;
+    color: #be1e37;
+  }
+  
+  .card-green .card-button:hover {
+    background-color: #0acf83;
+    color: #010a13;
+  }
+  
+  .card-blue .card-title {
+    color: #0ac8b9;
+  }
+  
+  .card-gold .card-title {
+    color: #c8aa6e;
+  }
+  
+  .card-red .card-title {
+    color: #be1e37;
+  }
+  
+  .card-green .card-title {
+    color: #0acf83;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1200px) {
+    .card-grid {
+      gap: 1.5rem;
+    }
+  }
+  
+  @media (max-width: 992px) {
+    .card-grid {
+      gap: 1rem;
+    }
+  
+    .card-title {
+      font-size: 1.5rem;
+    }
+  
+    .card-subtitle {
+      font-size: 1rem;
+    }
+  
+    .card-description {
+      font-size: 0.9rem;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .cards-container {
+      padding: 2rem 1rem;
+      overflow-x: auto;
+    }
+  
+    .card-grid {
+      grid-template-columns: repeat(4, 280px);
+      padding-bottom: 1rem;
+    }
+  
+    .title {
+      font-size: 3rem;
+    }
+  
+    .subtitle {
+      font-size: 1.2rem;
+    }
+  
+    .cards-container {
+      padding: 2rem 1rem;
+    }
+  
+    .card-grid {
+      gap: 1.5rem;
+    }
+  }
+  

@@ -19,3 +19,14 @@ export interface BestSupportsResponse {
     support: string;
     best_supports: BestAdc[];
   }
+
+  export interface Counter {
+    name: string;
+    winrate: number;
+    games: number;
+  }
+  
+  export interface CounterpickData {
+    name: string;
+    counters: Counter[];
+  }

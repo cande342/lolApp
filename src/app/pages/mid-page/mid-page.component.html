@@ -1,1 +1,14 @@
-<p>mid-page works!</p>
+<div class="champions-container">
+    <h1 class="champions-title">Midlane Counters</h1>
+  
+    <div class="bottom-form">
+      <button type="button" class="clear-btn" (click)="clearSearchAndResults()">Clear</button>
+  
+      <app-search 
+        [role]="'mid'" 
+        (searchResults)="onSearchResults($event.results, $event.championImage)">
+      </app-search>
+  
+      <app-results [results]="results"></app-results>
+    </div>
+  </div>

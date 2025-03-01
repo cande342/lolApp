@@ -1,7 +1,5 @@
 <div class="search-container">
-  <!-- Formulario de búsqueda -->
   <form class="search-form" [formGroup]="searchForm" (submit)="search($event)">
-    <!-- Campo de búsqueda -->
     <div class="search-input-container">
       <input
         type="text"
@@ -11,21 +9,18 @@
         [ngClass]="{ 'invalid': hasError('searchQuery', 'required') || hasError('searchQuery', 'minlength') }"
       />
 
-      <!-- Imagen del campeón -->
       <div *ngIf="championImage" class="champion-image-container">
-        <img [src]="championImage" alt="Campeón" class="champion-image" />
+        <img [src]="championImage" alt="Champion" class="champion-image" />
       </div>
 
-      <!-- Botón de búsqueda -->
-      <button type="submit" class="search-btn" [disabled]="searchForm.invalid">Buscar</button>
+      <button type="submit" class="search-btn" [disabled]="searchForm.invalid">Search</button>
     </div>
 
-    <!-- Mensajes de validación -->
     <div *ngIf="hasError('searchQuery', 'required')" class="error-message">
-      El campo de búsqueda es requerido.
+      Search field is required.
     </div>
     <div *ngIf="hasError('searchQuery', 'minlength')" class="error-message">
-      Debes ingresar al menos 2 caracteres.
+      Please enter at least 2 characters.
     </div>
   </form>
 </div>

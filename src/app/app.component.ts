@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { NavComponent } from './components/nav/nav.component';
 
 @Component({
@@ -9,5 +9,13 @@ import { NavComponent } from './components/nav/nav.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'lolpro';
+  hideNavbar = false; // Controla la visibilidad
+
+  constructor(private router: Router) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        this.hideNavbar = event.url === '/'; // Solo oculta en la home "/"
+      }
+    });
+  }
 }

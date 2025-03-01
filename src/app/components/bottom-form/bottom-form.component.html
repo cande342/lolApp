@@ -1,31 +1,30 @@
-<div class="bottom-form">
-  <!-- Selector de Rol -->
-  <div class="role-selector">
-    <button 
-      (click)="setRole('adc')" 
-      [class.active]="role === 'adc'" 
-      class="role-btn">
-      ADC
-    </button>
-    <button 
-      (click)="setRole('supp')" 
-      [class.active]="role === 'supp'" 
-      class="role-btn">
-      Support
-    </button>
+<div class="champions-container">
+  <h1 class="champions-title">Champion Synergies</h1>
+  <div class="bottom-form">
+    <div class="role-selector">
+      <button 
+        (click)="setRole('adc')" 
+        [class.active]="role === 'adc'" 
+        class="role-btn">
+        ADC
+      </button>
+      <button 
+        (click)="setRole('supp')" 
+        [class.active]="role === 'supp'" 
+        class="role-btn">
+        Support
+      </button>
+    </div>
+
+    <button type="button" class="clear-btn" (click)="clearSearchAndResults()">Clear</button>
+
+    <app-search 
+      [role]="role" 
+      (searchResults)="onSearchResults($event.results, $event.championImage)">
+    </app-search>
+
+    <app-results 
+      [results]="results">
+    </app-results>
   </div>
-
-  <!-- Botón Limpiar (Separado del formulario) -->
-  <button type="button" class="clear-btn" (click)="clearSearchAndResults()">Limpiar</button>
-
-  <!-- Componente Hijo: Search -->
-  <app-search 
-    [role]="role" 
-    (searchResults)="onSearchResults($event.results, $event.championImage)">
-  </app-search>
-
-  <!-- Componente Hijo: Results -->
-  <app-results 
-    [results]="results">
-  </app-results>
 </div>

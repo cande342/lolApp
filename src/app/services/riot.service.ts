@@ -12,11 +12,12 @@ export class RiotService {
 
   constructor(private http: HttpClient) { }
 
-  fetchPlayerData(summonerName: string, tag: string): Observable<{ message: string }> {
+  fetchPlayerData(summonerName: string, tag: string, line: number): Observable<{ message: string }> {
     const params = new HttpParams()
       .set('summonerName', summonerName)
-      .set('tag', tag);
-
+      .set('tag', tag)
+      .set('line', line.toString());
+  
     return this.http.get<{ message: string }>(this.apiRiot, { params });
   }
 }

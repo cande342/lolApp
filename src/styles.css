@@ -1,1 +1,17 @@
-/* You can add global styles to this file, and also import other style files */
+:root {
+    --lol-blue: #0ac8b9;
+    --lol-gold: #c8aa6e;
+    --lol-dark: #010a13;
+    --lol-darker: #0a1428;
+    --lol-red: #be1e37;
+    --lol-green: #0acf83;
+    --lol-light: #f0e6d2;
+  }
+
+  body {
+    margin: 0;
+    font-family: "Beaufort for LOL", Arial, sans-serif;
+    background-color: var(--lol-dark);
+    color: var(--lol-light);
+  }
+  

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { BestAdcsResponse, BestSupportsResponse } from '../models/ranking';
+import { BestAdcsResponse, BestSupportsResponse, CounterpickData } from '../models/ranking';
 
 @Injectable({
   providedIn: 'root'
@@ -21,4 +21,10 @@ export class ApiService {
   getBestSupportsForAdc(adc: string): Observable<BestSupportsResponse> {
     return this.http.get<BestSupportsResponse>(`${this.apiUrl}/best-supports/${adc}`);
   }
+
+    // Método para obtener los mejores counters de un mid laner
+  getBestCountersForMidChamp(midChamp: string): Observable<CounterpickData> {
+    return this.http.get<CounterpickData>(`${this.apiUrl}/best-counters/${midChamp}`);
+  }
+
 }
