@@ -77,6 +77,5 @@ export class SearchComponent {
   
   clearSearch() {
     this.searchForm.reset();
-    
   }
 }
