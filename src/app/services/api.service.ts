@@ -2,13 +2,14 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { BestAdcsResponse, BestSupportsResponse, CounterpickData } from '../models/ranking';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-  private apiUrl = 'http://localhost:3000/ranking';
+  private apiUrl = `${environment.apiUrl}/ranking`;
 
   constructor(private http: HttpClient) { }
 

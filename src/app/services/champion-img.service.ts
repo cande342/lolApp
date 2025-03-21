@@ -7,7 +7,7 @@ import { BehaviorSubject, catchError, firstValueFrom } from 'rxjs';
 })
 export class ChampionImgService {
 
-  private ddragonVersion$ = new BehaviorSubject<string>('14.13.1'); // Versión de respaldo
+  private ddragonVersion$ = new BehaviorSubject<string>('14.13.1'); 
 
   constructor(private http: HttpClient) { 
     this.fetchLatestVersion();
@@ -17,11 +17,11 @@ export class ChampionImgService {
     try {
       const response: string[] = await firstValueFrom(
         this.http.get<string[]>('https://ddragon.leagueoflegends.com/api/versions.json')
-          .pipe(catchError(() => [])) // Evita que la app falle si hay error
+          .pipe(catchError(() => []))
       );
 
       if (response.length > 0) {
-        this.ddragonVersion$.next(response[0]); // La versión más reciente
+        this.ddragonVersion$.next(response[0]);
       }
     } catch (error) {
       console.error('❌ Error al obtener la versión más reciente de DDragon:', error);
@@ -35,6 +35,6 @@ export class ChampionImgService {
   }
 
   private normalizeChampionName(championName: string): string {
-    return championName.replace(/\s+/g, '').trim(); // Quita espacios y formatea
+    return championName.replace(/\s+/g, '').trim();
   }
 }
