@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://tu-api-en-produccion.com/ranking'
+  apiUrl: 'https://matchmaking-gz5o.onrender.com/ranking'
 };
