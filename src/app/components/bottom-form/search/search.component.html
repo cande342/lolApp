@@ -22,5 +22,8 @@
     <div *ngIf="hasError('searchQuery', 'minlength')" class="error-message">
       Please enter at least 2 characters.
     </div>
+
+    <app-loading *ngIf="formSubmitted && isLoading"></app-loading>
+    
   </form>
 </div>

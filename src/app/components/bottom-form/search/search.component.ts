@@ -4,11 +4,12 @@ import { ApiService } from '../../../services/api.service';
 import { ChampionImgService } from '../../../services/champion-img.service';
 import { Observable } from 'rxjs';
 import { CommonModule } from '@angular/common';
+import { LoadingComponent } from "../../loading/loading.component";
 
 
 @Component({
   selector: 'app-search',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, LoadingComponent],
   templateUrl: './search.component.html',
   styleUrl: './search.component.css'
 })
@@ -20,6 +21,7 @@ export class SearchComponent {
   searchForm!: FormGroup;
   championImage: string | null = null;
   formSubmitted = false;
+  isLoading = false;
 
   constructor(
     private fb: FormBuilder,
@@ -38,6 +40,7 @@ export class SearchComponent {
     event.preventDefault();
     if (this.searchForm.invalid) return;
     this.formSubmitted = true;
+    this.isLoading = true;
     const searchQuery = this.searchForm.value.searchQuery.trim();
     this.championImage = this._championService.getChampionImage(searchQuery);
 
@@ -62,10 +65,12 @@ export class SearchComponent {
       next: (response) => {
         const results = response.best_supports || response.best_adcs || response.counters;
         this.searchResults.emit({ results, championImage: this.championImage });
+        this.isLoading = false;
       },
       error: (error) => {
         console.error('Error en la búsqueda:', error);
         this.searchResults.emit({ results: [], championImage: null });
+        this.isLoading = false;
       }
     });
   }

@@ -1,5 +1,5 @@
 <div class="results-container">
-  <div *ngIf="results.length > 0; else noResults">
+  <div *ngIf="results.length > 0;">
     <h3 class="results-title">Play with:</h3>
     <ul class="results-list">
       <li *ngFor="let result of results" class="result-item">
@@ -19,7 +19,5 @@
     </ul>
   </div>
 
-  <ng-template #noResults>
-    <p class="no-results-message">No results found. Try a different champion.</p>
-  </ng-template>
+
 </div>
