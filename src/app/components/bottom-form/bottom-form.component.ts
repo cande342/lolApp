@@ -21,6 +21,7 @@ export class BottomFormComponent {
   // Método para cambiar el rol
   setRole(newRole: 'adc' | 'supp') {
     this.role = newRole;
+    this.clearSearchAndResults();
   }
 
   // Método para recibir los resultados del componente hijo "search"
@@ -30,7 +31,7 @@ export class BottomFormComponent {
   }
 
   clearSearchAndResults() {
-    this.searchComponent.clearSearch(); // Limpia el formulario de búsqueda
-    this.resultsComponent.clearResults(); // Limpia los resultados
+    this.searchComponent.clearSearch(); 
+    this.resultsComponent.clearResults(); 
   }
 }

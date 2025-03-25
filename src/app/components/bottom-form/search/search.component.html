@@ -4,7 +4,7 @@
       <input
         type="text"
         formControlName="searchQuery"
-        [placeholder]="'Search ' + (role === 'adc' ? 'ADC' : 'Support') + ' Champion...'"
+        [placeholder]="'Search ' + (role === 'adc' ? 'ADC' : role === 'supp' ? 'Support' : 'Mid') + ' Champion...'"
         class="search-input"
         [ngClass]="{ 'invalid': hasError('searchQuery', 'required') || hasError('searchQuery', 'minlength') }"
       />
@@ -16,9 +16,6 @@
       <button type="submit" class="search-btn" [disabled]="searchForm.invalid">Search</button>
     </div>
 
-    <div *ngIf="hasError('searchQuery', 'required')" class="error-message">
-      Search field is required.
-    </div>
     <div *ngIf="hasError('searchQuery', 'minlength')" class="error-message">
       Please enter at least 2 characters.
     </div>
