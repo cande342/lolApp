@@ -19,6 +19,6 @@ export class ResultsComponent {
   }
 
   clearResults() {
-    this.results = [];  // Limpiar los resultados
+    this.results = [];  
   }
 }

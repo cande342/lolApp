@@ -16,8 +16,7 @@
       </button>
     </div>
 
-    <button type="button" class="clear-btn" (click)="clearSearchAndResults()">Clear</button>
-
+   
     <app-search 
       [role]="role" 
       (searchResults)="onSearchResults($event.results, $event.championImage)">
@@ -26,5 +25,7 @@
     <app-results 
       [results]="results">
     </app-results>
+
+    <button type="button" class="clear-btn" (click)="clearSearchAndResults()">Clear</button>
   </div>
 </div>
