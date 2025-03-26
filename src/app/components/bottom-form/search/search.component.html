@@ -16,11 +16,16 @@
       <button type="submit" class="search-btn" [disabled]="searchForm.invalid">Search</button>
     </div>
 
+    <!-- Mensajes de error -->
     <div *ngIf="hasError('searchQuery', 'minlength')" class="error-message">
       Please enter at least 2 characters.
     </div>
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
 
+    <!-- Spinner de carga -->
     <app-loading *ngIf="formSubmitted && isLoading"></app-loading>
-    
+
   </form>
 </div>

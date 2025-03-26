@@ -22,6 +22,7 @@ export class SearchComponent {
   championImage: string | null = null;
   formSubmitted = false;
   isLoading = false;
+  errorMessage: string = "";
 
   constructor(
     private fb: FormBuilder,
@@ -33,16 +34,35 @@ export class SearchComponent {
     this.searchForm = this.fb.group({
       searchQuery: ['', [Validators.required, Validators.minLength(2)]]
     });
+    this.searchForm.get('searchQuery')?.valueChanges.subscribe(value => {
+      if (value) {
+        this.searchForm.patchValue({
+          searchQuery: this.capitalize(value)
+        }, { emitEvent: false });
+      }
+    });
   }
 
-  // Método para realizar la búsqueda
+  capitalize(value: string): string {
+    return value.charAt(0).toUpperCase() + value.slice(1).toLowerCase();
+  }
+
   search(event: Event): void {
     event.preventDefault();
     if (this.searchForm.invalid) return;
+
     this.formSubmitted = true;
     this.isLoading = true;
+    this.errorMessage = ''; 
     const searchQuery = this.searchForm.value.searchQuery.trim();
+
     this.championImage = this._championService.getChampionImage(searchQuery);
+
+    if (!this.championImage) {
+      this.errorMessage = 'Este campeón no existe.';
+      this.isLoading = false;
+      return;
+    }
 
     let apiCall$: Observable<any>;
 
@@ -64,11 +84,18 @@ export class SearchComponent {
     apiCall$.subscribe({
       next: (response) => {
         const results = response.best_supports || response.best_adcs || response.counters;
+
+        // Si no hay resultados, mostrar mensaje de error
+        if (!results || results.length === 0) {
+          this.errorMessage = 'No hay datos para este campeón.';
+        }
+
         this.searchResults.emit({ results, championImage: this.championImage });
         this.isLoading = false;
       },
       error: (error) => {
         console.error('Error en la búsqueda:', error);
+        this.errorMessage = 'Hubo un error al buscar los datos.';
         this.searchResults.emit({ results: [], championImage: null });
         this.isLoading = false;
       }
