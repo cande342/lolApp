@@ -1,59 +1,52 @@
-# Lolpro
+# 🕹️ Lol APP
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.7.
+**Lol APP** es una aplicación web enfocada en encontrar combinaciones (matches) efectivas entre campeones de la **botlane** y la **midlane** en League of Legends. 🧠⚔️
 
-## Development server
+> ⚠️ *La app aún está en desarrollo.*
 
-To start a local development server, run:
+---
 
-```bash
-ng serve
-```
+## 🚀 ¿Qué hace?
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+La app permite buscar campeones de LoL y te muestra combinaciones registradas o sugeridas entre ellos, especialmente enfocadas en sinergias entre **botline** y **midline**.
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## 🛠️ Tecnologías utilizadas
 
-```bash
-ng generate component component-name
-```
+- **Frontend:** Next.js
+- **Backend:** NestJS
+- **Base de datos:** Firebase
+- **API externa:** Riot Games API
+- **Hosting del backend:** Render (gratuito por ahora)
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---
 
-```bash
-ng generate --help
-```
+## 💡 Cómo funciona
 
-## Building
+1. Escribí el nombre de un campeón en el buscador.
+2. Si el nombre está bien escrito y el campeón existe, se muestra su imagen al costado.
+3. Si no aparece nada, probablemente está mal escrito.
 
-To build the project run:
+⚠️ **Importante:** Debido a que el backend está alojado en **Render (plan gratuito)**, la **primera solicitud puede tardar hasta 1 minuto** en responder si el servidor está "dormido".
 
-```bash
-ng build
-```
+---
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+## 🔮 Próximas mejoras (roadmap)
 
-## Running unit tests
+- Cargar desde la interfaz los jugadores ha evaluar para obtener estadísticas.
+- Ranking de combinaciones más efectivas.
+- Soporte para otras líneas (top/jungle).
+- Mejorar tiempos de respuesta con otro servicio de hosting o keep-alive.
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+---
 
-```bash
-ng test
-```
+##  Contribuciones
 
-## Running end-to-end tests
+Toda ayuda es bienvenida. Si encontrás bugs o querés proponer mejoras, abrí un issue o hacé un PR. 
 
-For end-to-end (e2e) testing, run:
+---
 
-```bash
-ng e2e
-```
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
 
-## Additional Resources
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
