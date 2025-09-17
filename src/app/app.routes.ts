@@ -12,6 +12,10 @@ export const routes: Routes = [
       path: "mid",
       loadComponent: () => import("./pages/mid-page/mid-page.component").then((m) => m.MidPageComponent),
     },
+    {
+      path: "data",
+      loadComponent: () => import("./pages/data-page/data-page.component").then((m) => m.DataPageComponent),
+    },
     { path: "**", redirectTo: "" },
 
 ];

@@ -4,12 +4,12 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { RiotService } from '../../services/riot.service';
 
 @Component({
-  selector: 'app-aside-bottom-form',
+  selector: 'app-carga-form',
   imports: [CommonModule, ReactiveFormsModule],
-  templateUrl: './aside-bottom-form.component.html',
-  styleUrl: './aside-bottom-form.component.css'
+  templateUrl: './carga-form.html',
+  styleUrl: './carga-form.css'
 })
-export class AsideBottomFormComponent {
+export class CargaFormComponent {
   playerForm: FormGroup;
   successMessage: string = ''; 
   errorMessage: string = '';
@@ -18,7 +18,8 @@ export class AsideBottomFormComponent {
   constructor(private fb: FormBuilder, private _riotService: RiotService) {
     this.playerForm = this.fb.group({
       summonerName: ['', [Validators.required]], 
-      tag: ['', [Validators.required]] 
+      tag: ['', [Validators.required]],
+      line: ['', [Validators.required]]
     });
   }
 

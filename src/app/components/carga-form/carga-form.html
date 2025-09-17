@@ -1,7 +1,8 @@
 <aside class="player-aside">
-<div class="player-form-container">
+  <div class="player-form-container">
     <h3>Load Player Data</h3>
     <form class="player-form" [formGroup]="playerForm" (ngSubmit)="onSubmit()">
+      
       <!-- Campo para el nombre del invocador -->
       <div class="form-group">
         <label for="summonerName">Summoner Name:</label>
@@ -29,12 +30,28 @@
           Tag is required.
         </div>
       </div>
+
+      <!-- Campo para la línea -->
+      <div class="form-group">
+        <label for="line">Line:</label>
+        <select id="line" formControlName="line">
+          <option value="" disabled>Select line</option>
+          <option value="top">Top</option>
+          <option value="jungle">Jungle</option>
+          <option value="mid">Mid</option>
+          <option value="adc">ADC</option>
+          <option value="support">Support</option>
+        </select>
+        <div *ngIf="playerForm.get('line')?.invalid && playerForm.get('line')?.touched" class="error-message">
+          Line is required.
+        </div>
+      </div>
   
       <!-- Botón de envío -->
       <button type="submit" [disabled]="playerForm.invalid">Load Data</button>
     </form>
     
-     <!-- Loader -->
+    <!-- Loader -->
     <div *ngIf="isLoading" class="loader">Loading...</div>
 
     <!-- Mensaje de éxito -->

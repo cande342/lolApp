@@ -1,10 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { NgClass } from '@angular/common';
+import { PdfComponent } from '../../components/pdf/pdf.component';
 
 @Component({
   selector: 'app-home',
-  imports: [RouterLink, NgClass],
+  imports: [RouterLink, NgClass, PdfComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })

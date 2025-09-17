@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { NavigationEnd, Router, RouterOutlet } from '@angular/router';
 import { NavComponent } from './components/nav/nav.component';
+import { PdfComponent } from './components/pdf/pdf.component';
 
 @Component({
   selector: 'app-root',
